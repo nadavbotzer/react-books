@@ -5,6 +5,10 @@
     transition: ease;
 }
 
+.book-preview img {
+    border-radius: 5%;
+}
+
 .book-preview:hover {
     transform: scale(1.1);
 }
@@ -22,6 +26,7 @@
     left: 0;
     opacity: 0;
     transition: 0.2s;
+    border-radius: 5%;
     color: white;
     background-color: rgba(0, 0, 0, 0.767);
     height: 100%;
@@ -53,4 +58,16 @@
 
 .yellow {
     color: yellow;
+}
+
+@media only screen and (max-width: 525px) {
+    .book-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 300px);
+        justify-content: center;
+    }
+
+    .book-preview:hover {
+        transform: scale(1.05);
+    }
 }
