@@ -27,6 +27,11 @@
     margin: 0.5rem 0;
 }
 
+.book-details .more-details {
+    margin-top: 2rem;
+    font-weight: bold;
+}
+
 .book-details h1 {
     font-size: 4rem;
     color: var(--clr1);
@@ -39,7 +44,6 @@
 
 .book-details img {
     border-radius: 1rem;
-    margin-bottom: 3rem;
     max-height: 460px;
 }
 
@@ -52,8 +56,7 @@
 
 
 .book-details .price {
-    display: flex;
-    justify-self: start;
+    margin: 0;
     background-color: black;
     max-width: max-content;
     border-radius: 1rem;
@@ -63,7 +66,7 @@
 }
 
 .book-details .on-sale {
-    transform: translate(210%, -1090%);
+    transform: translate(210%, -990%);
     background-color: yellow;
     color: black;
     border-radius: 10%;

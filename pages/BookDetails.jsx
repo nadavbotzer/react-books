@@ -49,13 +49,14 @@ export function BookDetails({ bookId, onBack }) {
                         {author}
                     </h4>
                 ))}
-                <h5>{displayedTextForPageCount}</h5>
-                <h5>Published: {publishedDate}</h5>
+                <h3 className="more-details">More Details:</h3>
+                <h4>{displayedTextForPageCount}</h4>
+                <h4>Published: {publishedDate}</h4>
             </section>
             <section className="img-categories-section">
                 <img src={thumbnail} alt="Book Image" />
                 {listPrice.isOnSale && <p className="on-sale">On Sale!</p>}
-                <p className={priceTxtColor + ' price'}>Price: {listPrice.amount} {listPrice.currencyCode}
+                <p className="price">Price: {listPrice.amount} {listPrice.currencyCode}
                 </p>
                 <div className="categories-wrapper">
                     <h3>Categories:</h3>
@@ -65,7 +66,6 @@ export function BookDetails({ bookId, onBack }) {
                         </p>
                     ))}
                 </div>
-
             </section>
         </section>
     )
