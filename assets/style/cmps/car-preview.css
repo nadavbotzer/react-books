@@ -1,0 +1,49 @@
+.book-preview {
+    position: relative;
+}
+
+.book-preview:hover .info {
+    opacity: 1;
+}
+
+.book-preview .info {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.2s;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.767);
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    /* max-width: 300px; */
+}
+
+.book-preview .on-sale {
+    position: absolute;
+    top: 0.5rem;
+    left: calc(100% - 0.5rem);
+    background-color: yellow;
+    color: black;
+    border-radius: 10%;
+    padding: 0.15rem 0.35rem;
+    transform: translateX(-100%);
+    width: max-content;
+    font-size: 1rem;
+}
+
+.book-preview h3 {
+    padding-inline-end: 3.25rem;
+}
+
+.book-preview .price {
+    font-weight: bold;
+}
+
+.yellow {
+    color: yellow;
+}

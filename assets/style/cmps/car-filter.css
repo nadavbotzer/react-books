@@ -1,0 +1,15 @@
+.car-filter {
+    margin-top: 1rem;
+    background-color: var(--gray1);
+    padding-inline: 1em;
+}
+
+.car-filter form {
+    display: grid;
+    grid-template-columns: 100px 200px;
+    gap: .5em;
+}
+
+.car-filter form button {
+    margin-inline: 0
+}
