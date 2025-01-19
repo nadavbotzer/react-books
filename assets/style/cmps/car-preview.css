@@ -1,5 +1,12 @@
 .book-preview {
     position: relative;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    transition: ease;
+}
+
+.book-preview:hover {
+    transform: scale(1.1);
 }
 
 .book-preview:hover .info {
@@ -21,6 +28,10 @@
     width: 100%;
     padding: 1rem;
     /* max-width: 300px; */
+}
+
+.book-preview .price {
+    font-size: 1.5rem;
 }
 
 .book-preview .on-sale {

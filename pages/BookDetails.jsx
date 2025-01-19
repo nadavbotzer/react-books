@@ -62,7 +62,7 @@ export function BookDetails({ bookId, onBack }) {
                         </p>
                     ))}
                 </div>
-                <p className={priceTxtColor + ' price'}>Price:{listPrice.amount} {listPrice.currencyCode}
+                <p className={priceTxtColor + ' price'}>Price: {listPrice.amount} {listPrice.currencyCode}
                 </p>
                 {listPrice.isOnSale && <p className="on-sale">On Sale!</p>}
             </section>
