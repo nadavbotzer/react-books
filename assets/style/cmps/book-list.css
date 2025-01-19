@@ -12,4 +12,8 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, 300px);
     }
+
+    .book-list .remove-btn {
+        font-size: 1.25rem;
+    }
 }

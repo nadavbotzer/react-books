@@ -19,8 +19,8 @@
 
 .book-preview .info {
     display: flex;
+    gap: 0.2rem;
     flex-direction: column;
-    gap: .5rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -54,10 +54,33 @@
 
 .book-preview h3 {
     padding-inline-end: 3.25rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0;
+    transform: translateY(-25%);
+}
+
+.book-preview h5 {
+    font-size: 0.9rem;
 }
 
 .yellow {
     color: yellow;
+}
+
+.book-preview .remove-btn {
+    transform: translateY(-25%);
+    padding: 0.2rem 0.4rem;
+    margin: 0;
+    max-width: max-content;
+    font-size: 0.7rem;
+    transition: ease 0.5s;
+    color: white;
+    background-color: var(--gray2);
+}
+
+.book-preview .remove-btn:hover {
+    transform: scale(1.2);
+    background-color: red;
 }
 
 @media only screen and (max-width: 525px) {
@@ -69,5 +92,29 @@
 
     .book-preview:hover {
         transform: scale(1.05);
+    }
+
+    .book-preview h3 {
+        font-size: 2.5rem;
+    }
+
+    .book-preview h5 {
+        font-size: 1.2rem;
+    }
+
+    .book-preview .price {
+        font-size: 2rem;
+    }
+
+    .book-preview .on-sale {
+        position: absolute;
+        top: 0.5rem;
+        left: calc(100% - 0.5rem);
+        transform: translateX(-100%);
+        font-size: 2rem;
+    }
+
+    .book-preview .remove-btn {
+        font-size: 1rem;
     }
 }

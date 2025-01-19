@@ -1,14 +1,21 @@
 
-export function BookPreview({ book, onSetBook }) {
+export function BookPreview({ book, onSetBook, onRemoveBook }) {
     const { title, description, listPrice, thumbnail } = book
     function getPriceTxtColor() {
         if (!listPrice.isOnSale) return ''
         else return 'yellow'
     }
     const priceTxtColor = getPriceTxtColor()
+
+    function handleRemoveBook(ev) {
+        ev.stopPropagation()
+        onRemoveBook()
+    }
+
     return (
         <article onClick={onSetBook} className="book-preview">
             <div className="info">
+                <button className="remove-btn" onClick={handleRemoveBook}>X</button>
                 <h3>{title}</h3>
                 <h5>{description}</h5>
                 <p className={priceTxtColor + ' price'}>{listPrice.amount} {listPrice.currencyCode}
