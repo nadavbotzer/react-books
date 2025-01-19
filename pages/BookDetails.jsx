@@ -38,6 +38,7 @@ export function BookDetails({ bookId, onBack }) {
     return (
         <section className="book-details">
             <section className="details-section">
+                <button className="back-btn" onClick={onBack}>Back</button>
                 <h1>{title}</h1>
                 <h2>{subtitle}</h2>
                 <h3>{description}</h3>
@@ -51,7 +52,7 @@ export function BookDetails({ bookId, onBack }) {
                 <h5>{displayedTextForPageCount}</h5>
                 <h5>Published: {publishedDate}</h5>
             </section>
-            <section>
+            <section className="img-categories-section">
                 <img src={thumbnail} alt="Book Image" />
                 <div className="categories-wrapper">
                     <h3>Categories:</h3>
@@ -65,7 +66,6 @@ export function BookDetails({ bookId, onBack }) {
                 </p>
                 {listPrice.isOnSale && <p className="on-sale">On Sale!</p>}
             </section>
-            <button className="back-btn" onClick={onBack}>Back</button>
         </section>
     )
 }
