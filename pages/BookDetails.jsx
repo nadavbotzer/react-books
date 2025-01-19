@@ -54,6 +54,9 @@ export function BookDetails({ bookId, onBack }) {
             </section>
             <section className="img-categories-section">
                 <img src={thumbnail} alt="Book Image" />
+                {listPrice.isOnSale && <p className="on-sale">On Sale!</p>}
+                <p className={priceTxtColor + ' price'}>Price: {listPrice.amount} {listPrice.currencyCode}
+                </p>
                 <div className="categories-wrapper">
                     <h3>Categories:</h3>
                     {categories.map((categorie, idx) => (
@@ -62,9 +65,7 @@ export function BookDetails({ bookId, onBack }) {
                         </p>
                     ))}
                 </div>
-                <p className={priceTxtColor + ' price'}>Price: {listPrice.amount} {listPrice.currencyCode}
-                </p>
-                {listPrice.isOnSale && <p className="on-sale">On Sale!</p>}
+
             </section>
         </section>
     )

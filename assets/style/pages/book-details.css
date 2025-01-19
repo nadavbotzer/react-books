@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     margin-top: 2rem;
     gap: 2rem;
-    align-items: center;
+    align-items: top;
     justify-content: center;
 }
 
@@ -40,6 +40,7 @@
 .book-details img {
     border-radius: 1rem;
     margin-bottom: 3rem;
+    max-height: 460px;
 }
 
 .book-details .category {
@@ -51,10 +52,23 @@
 
 
 .book-details .price {
+    display: flex;
+    justify-self: start;
     background-color: black;
     max-width: max-content;
     border-radius: 1rem;
     padding: 0.25rem 0.5rem;
-    margin: 0.25rem 0.5rem;
+    margin: 0.35rem 0.5rem;
     color: white;
+}
+
+.book-details .on-sale {
+    transform: translate(210%, -1090%);
+    background-color: yellow;
+    color: black;
+    border-radius: 10%;
+    padding: 0.15rem 0.35rem;
+    width: max-content;
+    font-size: 2rem;
+
 }
