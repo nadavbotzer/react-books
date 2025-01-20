@@ -83,6 +83,12 @@
     background-color: red;
 }
 
+.book-preview .edit-btn {
+    max-width: max-content;
+    transform: translateX(280%);
+}
+
+
 @media only screen and (max-width: 525px) {
     .book-list {
         display: grid;
@@ -119,4 +125,6 @@
     .book-preview .remove-btn {
         font-size: 1rem;
     }
+
+
 }

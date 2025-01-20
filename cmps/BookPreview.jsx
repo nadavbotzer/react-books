@@ -1,4 +1,4 @@
-const { Link, NavLink, useNavigate } = ReactRouterDOM
+const { Link, useNavigate } = ReactRouterDOM
 
 export function BookPreview({ book, onRemoveBook }) {
     const { title, description, listPrice, thumbnail } = book
@@ -6,6 +6,12 @@ export function BookPreview({ book, onRemoveBook }) {
     function onBookDetails() {
         navigate(`/book/${book.id}`)
     }
+
+    function onBookEdit(ev) {
+        ev.stopPropagation()
+        navigate(`/book/edit/${book.id}`)
+    }
+
     function getPriceTxtColor() {
         if (!listPrice.isOnSale) return ''
         else return 'yellow'
@@ -25,6 +31,7 @@ export function BookPreview({ book, onRemoveBook }) {
                 <h5>{description}</h5>
                 <p className={priceTxtColor + ' price'}>{listPrice.amount} {listPrice.currencyCode}
                 </p>
+                <button className="edit-btn" onClick={onBookEdit}>Edit</button>
                 {listPrice.isOnSale && <p className="on-sale">On Sale!</p>}
             </div>
             <img src={thumbnail} alt="Book Image" />
