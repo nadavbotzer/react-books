@@ -9,9 +9,6 @@ export function BookList({ books, onRemoveBook }) {
                     <BookPreview
                         book={book}
                         onRemoveBook={() => { onRemoveBook(book.id) }} />
-                    <button>
-                        <Link to={`/book/${book.id}`}>Details</Link>
-                    </button>
                 </li>
             ))}
         </ul>

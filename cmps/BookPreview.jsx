@@ -1,6 +1,11 @@
+const { Link, NavLink, useNavigate } = ReactRouterDOM
 
 export function BookPreview({ book, onRemoveBook }) {
     const { title, description, listPrice, thumbnail } = book
+    const navigate = useNavigate()
+    function onBookDetails() {
+        navigate(`/book/${book.id}`)
+    }
     function getPriceTxtColor() {
         if (!listPrice.isOnSale) return ''
         else return 'yellow'
@@ -13,7 +18,7 @@ export function BookPreview({ book, onRemoveBook }) {
     }
 
     return (
-        <article className="book-preview">
+        <article onClick={onBookDetails} className="book-preview">
             <div className="info">
                 <button className="remove-btn" onClick={handleRemoveBook}>X</button>
                 <h3>{title}</h3>
