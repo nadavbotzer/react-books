@@ -1,8 +1,7 @@
 import { BookFilter } from "../cmps/BookFilter.jsx"
 import { BookList } from "../cmps/BookList.jsx"
-import { BookDetails } from "./BookDetails.jsx"
 import { bookService } from "../services/book.service.js"
-
+const { Link, NavLink } = ReactRouterDOM
 const { useState, useEffect } = React
 
 export function BookIndex() {
@@ -43,6 +42,9 @@ export function BookIndex() {
         <section className="car-index">
             {<React.Fragment>
                 <BookFilter onSetFilter={onSetFilter} filterBy={{ txt, maxPrice }} />
+                <button>
+                    <Link to="/book/edit">Add Book</Link>
+                </button>
                 <BookList
                     onRemoveBook={onRemoveBook}
                     books={books}

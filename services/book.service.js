@@ -44,8 +44,17 @@ function save(book) {
     }
 }
 
-function getEmptyBook(title = '', description = '') {
-    return { title, description }
+function getEmptyBook(title = '', price = '') {
+    return {
+        title,
+        description: makeLorem(12),
+        thumbnail: 'http://coding-academy.org/books-photos/14.jpg',
+        listPrice: {
+            amount: price,
+            currencyCode: 'ILS',
+            isOnSale: false
+        }
+    }
 }
 
 function getDefaultFilter() {
