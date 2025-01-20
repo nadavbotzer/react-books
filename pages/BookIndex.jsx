@@ -42,9 +42,6 @@ export function BookIndex() {
         <section className="car-index">
             {<React.Fragment>
                 <BookFilter onSetFilter={onSetFilter} filterBy={{ txt, maxPrice }} />
-                <button>
-                    <Link to="/book/edit">Add Book</Link>
-                </button>
                 <BookList
                     onRemoveBook={onRemoveBook}
                     books={books}

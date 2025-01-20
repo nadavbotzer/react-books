@@ -18,22 +18,15 @@ export function AddReview({ bookId, onAddReview }) {
 
     function handleSubmit(event) {
         event.preventDefault()
-
-        if (!review.fullname || !review.readAt) {
-            alert('Please fill in all the fields.')
-            return
-        }
-
         bookService.get(bookId).then(book => {
             if (!book.reviews) book.reviews = []
             book.reviews.push(review)
             bookService.save(book)
                 .then(() => {
-                    setReview({ fullname: '', rating: 1, readAt: '' }); // Reset review after adding it
-                    onAddReview(); // Notify parent to reload reviews
-                    console.log(book)
+                    setReview({ fullname: '', rating: 1, readAt: '' })
+                    onAddReview()
                 })
-                .catch((err) => console.error('Failed to add review:', err));
+                .catch((err) => console.error('Failed to add review:', err))
         })
     }
 

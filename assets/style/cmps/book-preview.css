@@ -1,8 +1,7 @@
 .book-preview {
     position: relative;
     cursor: pointer;
-    margin-bottom: 0.5rem;
-    transition: ease;
+    transition: ease 0.3s;
 }
 
 .book-preview img {

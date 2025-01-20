@@ -36,7 +36,7 @@ export function BookDetails() {
     }
 
     function handleAddReview() {
-        bookService.get(params.bookId).then(setBook);
+        bookService.get(params.bookId).then(setBook)
     }
 
     if (!book) return <div>Loading...</div>
