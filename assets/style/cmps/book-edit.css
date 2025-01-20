@@ -1,0 +1,17 @@
+.book-edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-edit form {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+}
+
+.book-edit form button {
+    max-width: fit-content;
+    align-self: center;
+}

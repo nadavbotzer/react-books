@@ -65,14 +65,18 @@ export function BookEdit() {
                 <input value={title} onChange={handleChange} type="text" name="title" id="title" />
                 <label htmlFor="price">Price:</label>
                 <input value={listPrice.amount || ''} onChange={handleChange} type="number" name="listPrice.amount" id="price" />
-                <label htmlFor="sale">On Sale:</label>
-                <input
-                    checked={listPrice.isOnSale || false}
-                    onChange={handleChange}
-                    type="checkbox"
-                    name="listPrice.isOnSale"
-                    id="sale"
-                />                <button>Save</button>
+                <div>
+                    <label htmlFor="sale">On Sale:</label>
+                    <input
+                        checked={listPrice.isOnSale || false}
+                        onChange={handleChange}
+                        type="checkbox"
+                        name="listPrice.isOnSale"
+                        id="sale"
+                    />
+
+                </div>
+                <button>Save</button>
             </form>
         </section>
     )
