@@ -23,12 +23,17 @@ export function BookPreview({ book, onRemoveBook }) {
         onRemoveBook()
     }
 
+    function shortDesc(description) {
+        if (description.length <= 20) return description
+        return description.substring(0, 60) + '...'
+    }
+
     return (
         <article onClick={onBookDetails} className="book-preview">
             <div className="info">
                 <button className="remove-btn" onClick={handleRemoveBook}>X</button>
                 <h3>{title}</h3>
-                <h5>{description}</h5>
+                <h5>{shortDesc(description)}</h5>
                 <p className={priceTxtColor + ' price'}>{listPrice.amount} {listPrice.currencyCode}
                 </p>
                 <button className="edit-btn" onClick={onBookEdit}>Edit</button>

@@ -84,7 +84,7 @@
 
 .book-preview .edit-btn {
     max-width: max-content;
-    transform: translateX(280%);
+    align-self: flex-end;
 }
 
 
