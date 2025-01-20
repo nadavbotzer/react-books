@@ -1,17 +1,17 @@
 import { bookService } from "../services/book.service.js"
-
 const { useState, useEffect } = React
+const { useParams, useNavigate, Link } = ReactRouterDOM
 
-export function BookDetails({ bookId, onBack }) {
+export function BookDetails() {
 
     const [book, setBook] = useState(null)
-
+    const params = useParams()
     useEffect(() => {
         loadBook()
     }, [])
 
     function loadBook() {
-        bookService.get(bookId)
+        bookService.get(params.bookId)
             .then(setBook)
             .catch(err => {
                 console.log('Problem getting book:', err)
@@ -26,19 +26,15 @@ export function BookDetails({ bookId, onBack }) {
 
     }
 
-    function getPriceTxtColor() {
-        if (!listPrice.isOnSale) return ''
-        else return 'yellow'
-    }
-
     if (!book) return <div>Loading...</div>
     const { title, subtitle, description, authors, listPrice, publishedDate, pageCount, thumbnail, categories } = book
     const displayedTextForPageCount = getDisplayedTextForPageCount(pageCount)
-    const priceTxtColor = getPriceTxtColor()
     return (
         <section className="book-details">
             <section className="details-section">
-                <button className="back-btn" onClick={onBack}>Back</button>
+                <button className="back-btn">
+                    <Link to="/book">Back</Link>
+                </button>
                 <h1>{title}</h1>
                 <h2>{subtitle}</h2>
                 <h3>{description}</h3>

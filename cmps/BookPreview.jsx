@@ -1,5 +1,5 @@
 
-export function BookPreview({ book, onSetBook, onRemoveBook }) {
+export function BookPreview({ book, onRemoveBook }) {
     const { title, description, listPrice, thumbnail } = book
     function getPriceTxtColor() {
         if (!listPrice.isOnSale) return ''
@@ -13,7 +13,7 @@ export function BookPreview({ book, onSetBook, onRemoveBook }) {
     }
 
     return (
-        <article onClick={onSetBook} className="book-preview">
+        <article className="book-preview">
             <div className="info">
                 <button className="remove-btn" onClick={handleRemoveBook}>X</button>
                 <h3>{title}</h3>

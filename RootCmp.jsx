@@ -1,27 +1,28 @@
+const Router = ReactRouterDOM.HashRouter
+const { Routes, Route } = ReactRouter
+
 import { AppHeader } from "./cmps/AppHeader.jsx"
 import { About } from "./pages/About.jsx"
+import { BookDetails } from "./pages/BookDetails.jsx"
 import { BookIndex } from "./pages/BookIndex.jsx"
 import { Home } from "./pages/Home.jsx"
 
-const { useState } = React
 
 export function App() {
 
-    const [page, setPage] = useState('book')
-
-    function onSetPage(newPage) {
-        setPage(newPage)
-    }
-
     return (
-        <section className="app">
-            <AppHeader setPage={onSetPage} />
-
-            <main className="main-layout">
-                {page === 'home' && <Home />}
-                {page === 'about' && <About />}
-                {page === 'book' && <BookIndex />}
-            </main>
-        </section>
+        <Router>
+            <section className="app">
+                <AppHeader />
+                <main className="main-layout">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/book" element={<BookIndex />} />
+                        <Route path="/book/:bookId" element={<BookDetails />} />
+                    </Routes>
+                </main>
+            </section>
+        </Router>
     )
 } 

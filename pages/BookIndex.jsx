@@ -10,8 +10,6 @@ export function BookIndex() {
     const [books, setBooks] = useState(null)
     const [filterBy, setFilterBy] = useState(bookService.getDefaultFilter())
 
-    const [selectedBookId, setSelectedBookId] = useState(null)
-
     useEffect(() => {
         loadBooks()
     }, [filterBy])
@@ -39,25 +37,17 @@ export function BookIndex() {
         setFilterBy(filterBy => ({ ...filterBy, ...filterByToEdit }))
     }
 
-    function onSetSelectedBookId(bookId) {
-        setSelectedBookId(bookId)
-    }
-
-
     if (!books) return <div>Loading...</div>
     const { txt, maxPrice } = filterBy
     return (
         <section className="car-index">
-            {selectedBookId
-                ? <BookDetails onBack={() => setSelectedBookId(null)} bookId={selectedBookId} />
-                : <React.Fragment>
-                    <BookFilter onSetFilter={onSetFilter} filterBy={{ txt, maxPrice }} />
-                    <BookList
-                        onSetSelectedBookId={onSetSelectedBookId}
-                        onRemoveBook={onRemoveBook}
-                        books={books}
-                    />
-                </React.Fragment>
+            {<React.Fragment>
+                <BookFilter onSetFilter={onSetFilter} filterBy={{ txt, maxPrice }} />
+                <BookList
+                    onRemoveBook={onRemoveBook}
+                    books={books}
+                />
+            </React.Fragment>
             }
         </section>
     )
