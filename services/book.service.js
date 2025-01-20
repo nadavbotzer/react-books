@@ -47,7 +47,7 @@ function save(book) {
 function getEmptyBook(title = '', price = '') {
     return {
         title,
-        description: makeLorem(12),
+        description: makeLorem(80),
         thumbnail: 'http://coding-academy.org/books-photos/14.jpg',
         listPrice: {
             amount: price,
