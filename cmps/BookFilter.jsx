@@ -13,7 +13,6 @@ export function BookFilter({ filterBy, onSetFilter }) {
 
     function onSubmit(ev) {
         ev.preventDefault()
-        console.log('Submit filter')
         onSetFilter(filterByToEdit)
     }
 
