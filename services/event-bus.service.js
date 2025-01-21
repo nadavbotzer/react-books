@@ -36,34 +36,3 @@ export function showErrorMsg(txt) {
 
 window.showSuccessMsg = showSuccessMsg
 window.showErrorMsg = showErrorMsg
-
-
-
-// Service Testing:
-// Example for using the service
-const unsubscribe = eventBusService.on('some-event', (data) => {
-    console.log('Got some-event:', data)
-})
-
-
-eventBusService.on('some-event', (data) => {
-    console.log('Also MEEEEEEE:', data)
-})
-
-
-// setTimeout(() => {
-//     eventBusService.emit('some-event', { num: 100, blabla: 'Bla!' })
-// }, 1500);
-
-
-// eventBusService.on('some-event', (data) => {
-//     console.log('Also got some-event:', data)
-// })
-// eventBusService.on('more', (data) => {
-//     console.log('Got some-event:', data)
-// })
-
-// setTimeout(() => {
-//     eventBusService.emit('some-event', { num: 100, blabla: 'Bla!' })
-// }, 1500);
-
