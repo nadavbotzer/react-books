@@ -53,7 +53,7 @@ export function BookEdit() {
         ev.preventDefault()
         const txtMsg = bookToEdit.id ? bookToEdit.id + ' edit' : 'created'
         bookService.save(bookToEdit)
-            .then(savedBook => {
+            .then(() => {
                 navigate('/book')
                 showSuccessMsg(`Book ${txtMsg} successfully`)
             })

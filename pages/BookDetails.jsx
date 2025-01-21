@@ -56,13 +56,15 @@ export function BookDetails() {
                 <h2>{subtitle}</h2>
                 <h3>{description}</h3>
                 <br></br>
-                <h3>Authors:</h3>
-                {authors &&
-                    authors.map((author, idx) => (
-                        <h4 key={idx}>
-                            {author}
-                        </h4>
-                    ))}
+                <div className="authors flex">
+                    <h3>Authors:</h3>
+                    {authors &&
+                        authors.map((author, idx) => (
+                            <h4 key={idx}>
+                                {author}
+                            </h4>
+                        ))}
+                </div>
                 <h3 className="more-details">More Details:</h3>
                 <h4>{displayedTextForPageCount}</h4>
                 <h4>Published, {publishedDate}</h4>

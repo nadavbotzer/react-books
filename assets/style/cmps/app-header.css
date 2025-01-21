@@ -17,6 +17,11 @@
     gap: 15px;
 }
 
+.app-header h1 {
+    font-family: "Annie Use Your Telescope", serif;
+    font-size: 3rem;
+}
+
 .active {
     color: green;
 }

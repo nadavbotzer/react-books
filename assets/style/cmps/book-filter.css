@@ -1,15 +1,24 @@
-.car-filter {
+.book-filter {
     margin-top: 1rem;
     background-color: var(--gray1);
     padding-inline: 1em;
+    padding: 1rem;
 }
 
-.car-filter form {
+.book-filter:hover form {
+    opacity: 1;
+    height: 100%;
+}
+
+.book-filter form {
     display: grid;
     grid-template-columns: 100px 200px;
     gap: .5em;
+    opacity: 0;
+    height: 0;
+    transition: 0.3s;
 }
 
-.car-filter form button {
+.book-filter form button {
     margin-inline: 0
 }

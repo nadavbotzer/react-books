@@ -5,14 +5,16 @@
     gap: 2rem;
     align-items: top;
     justify-content: center;
+    max-width: 80vw;
+    margin-inline: auto;
 }
 
 .book-details .details-section {
-    flex: 0 1 500px;
+    flex: 1 0 300px;
 }
 
 .book-details .img-categories-section {
-    flex: 0 0 350px;
+    flex: 0 1 350px;
 }
 
 .book-details .categories-wrapper {
@@ -28,8 +30,13 @@
 }
 
 .book-details .more-details {
-    margin-top: 2rem;
     font-weight: bold;
+    padding-top: 1rem;
+    text-decoration: underline;
+}
+
+.book-details .authors {
+    gap: 1rem
 }
 
 .book-details .img-wrapper {
@@ -37,13 +44,19 @@
 }
 
 .book-details h1 {
-    font-size: 3rem;
+    font-size: 2.7rem;
     color: var(--clr1);
+    padding-bottom: 1rem;
 }
 
 .book-details h2 {
+    font-size: 1.5rem;
     color: var(--clr2);
-    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.book-details h3 {
+    font-size: 1rem;
 }
 
 .book-details img {
@@ -65,8 +78,12 @@
     max-width: max-content;
     border-radius: 1rem;
     padding: 0.25rem 0.5rem;
-    margin: 0.35rem 0.5rem;
+    margin: 0.35rem 0;
     color: white;
+}
+
+.book-details .categories-wrapper {
+    align-items: center;
 }
 
 .book-details .on-sale {
@@ -83,7 +100,7 @@
 }
 
 .book-details .reviews-wrapper {
-    flex: 1;
+    flex: 1 0 100%;
 }
 
 .book-details .nav-btn-wrapper {
