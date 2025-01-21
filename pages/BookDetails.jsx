@@ -29,12 +29,11 @@ export function BookDetails() {
 
     }
 
-    function onRemoveReview(reviewIndex) {
-        const updatedBook = { ...book }
-        updatedBook.reviews.splice(reviewIndex, 1)
-        bookService.save(updatedBook).then(() => {
-            setBook(updatedBook)
-        })
+    function onRemoveReview(reviewId) {
+        bookService.removeReview(params.bookId, reviewId)
+            .then((book) => {
+                setBook({ ...book })
+            })
     }
 
     function handleAddReview() {
@@ -92,10 +91,10 @@ export function BookDetails() {
                         {book.reviews &&
                             <ul>
                                 {book.reviews.map((review, index) => (
-                                    <li key={index}>
+                                    <li key={review.id}>
                                         <p><strong>{review.fullname}</strong> - {review.rating} ★</p>
                                         <p>Read on: {review.readAt}</p>
-                                        <button onClick={() => onRemoveReview(index)}>X</button>
+                                        <button onClick={() => onRemoveReview(review.id)}>X</button>
                                     </li>
                                 ))}
                             </ul>

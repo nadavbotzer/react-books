@@ -1,4 +1,4 @@
-import { loadFromStorage, makeId, saveToStorage, makeLorem } from './util.service.js'
+import { loadFromStorage, makeId, saveToStorage, makeLorem, getTruthyValues } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const BOOK_KEY = 'bookDB'
@@ -12,6 +12,9 @@ export const bookService = {
     getEmptyBook,
     getDefaultFilter,
     getFilterFromSearchParams,
+    getEmptyReview,
+    saveReview,
+    removeReview
 }
 
 function query(filterBy = {}) {
@@ -530,6 +533,33 @@ function _setNextPrevId(book) {
         return book
     })
 }
+
+function getEmptyReview() {
+    return {
+        fullname: '',
+        rating: 1,
+        readAt: ''
+    }
+}
+
+function saveReview(bookId, reviewToSave) {
+    return get(bookId).then(book => {
+        if (!book.reviews) book.reviews = []
+        reviewToSave.id = makeId()
+        book.reviews.unshift(reviewToSave)
+        return save(book).then(() => reviewToSave)
+    })
+}
+
+function removeReview(bookId, reviewIdToRemove) {
+    return get(bookId).then(book => {
+        book.reviews = book.reviews.filter(review => review.id !== reviewIdToRemove)
+        if (book.reviews.length === 0) book.reviews = false
+        book = getTruthyValues(book)
+        return save(book)
+    })
+}
+
 
 function _createBook(title, description = 250) {
     const book = getEmptyBook(title, description)

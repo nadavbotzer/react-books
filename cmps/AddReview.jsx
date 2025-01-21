@@ -15,15 +15,12 @@ export function AddReview({ bookId, onAddReview }) {
 
     function handleSubmit(event) {
         event.preventDefault()
-        bookService.get(bookId).then(book => {
-            if (!book.reviews) book.reviews = []
-            book.reviews.unshift(review)
-            bookService.save(book)
+        bookService.get(bookId).then(() => {
+            bookService.saveReview(bookId, review)
                 .then(() => {
-                    setReview({ fullname: '', rating: 1, readAt: '' })
+                    setReview(bookService.getEmptyReview())
                     onAddReview()
                 })
-                .catch((err) => console.error('Failed to add review:', err))
         })
     }
 
