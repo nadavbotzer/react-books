@@ -30,7 +30,6 @@ export function AddReview({ bookId, onAddReview }) {
     return (
         <section className='add-review'>
             <form onSubmit={handleSubmit}>
-                <h3>Add Review</h3>
                 <label htmlFor="fullname">Full Name:</label>
                 <input
                     type="text"

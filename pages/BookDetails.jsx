@@ -65,7 +65,7 @@ export function BookDetails() {
                     ))}
                 <h3 className="more-details">More Details:</h3>
                 <h4>{displayedTextForPageCount}</h4>
-                <h4>Published: {publishedDate}</h4>
+                <h4>Published, {publishedDate}</h4>
             </section>
             <section className="img-categories-section">
                 <div className="img-wrapper">
@@ -82,6 +82,8 @@ export function BookDetails() {
                         </p>
                     ))}
                 </div>
+            </section>
+            <section className="reviews-wrapper flex flex-column">
                 <Accordion title={'Reviews'}>
                     <section className="reviews">
                         {(!book.reviews || !book.reviews.length) && <span>No Reviews</span>}
@@ -98,9 +100,10 @@ export function BookDetails() {
                         }
                     </section>
                 </Accordion>
-
+                <Accordion title={'Add Review'}>
+                    <AddReview bookId={params.bookId} onAddReview={handleAddReview} />
+                </Accordion>
             </section>
-            <AddReview bookId={params.bookId} onAddReview={handleAddReview} />
         </section>
     )
 }

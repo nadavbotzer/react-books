@@ -82,6 +82,10 @@
 
 }
 
+.book-details .reviews-wrapper {
+    flex: 1;
+}
+
 .book-details .nav-btn-wrapper {
     gap: 1rem
 }

@@ -58,7 +58,8 @@ export function BookEdit() {
                 showSuccessMsg(`Book ${txtMsg} successfully`)
             })
             .catch(err => {
-                showSuccessMsg(`Could not ${txtMsg} book`)
+                showErrorMsg(`Could not ${txtMsg} book`)
+                console.log(err)
             })
     }
 
