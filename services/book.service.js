@@ -11,6 +11,7 @@ export const bookService = {
     save,
     getEmptyBook,
     getDefaultFilter,
+    getFilterFromSearchParams,
 }
 
 function query(filterBy = {}) {
@@ -59,6 +60,15 @@ function getEmptyBook(title = '', price = '') {
 
 function getDefaultFilter() {
     return { txt: '', maxPrice: '' }
+}
+
+function getFilterFromSearchParams(searchParams) {
+    const txt = searchParams.get('txt') || ''
+    const maxPrice = searchParams.get('maxPrice') || ''
+    return {
+        txt,
+        maxPrice
+    }
 }
 
 function _createBooks() {

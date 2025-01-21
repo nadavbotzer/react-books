@@ -1,12 +1,12 @@
 
 const { useState, useEffect } = React
+const { useSearchParams } = ReactRouterDOM
 
 
 export function BookFilter({ filterBy, onSetFilter }) {
 
-    //* { txt: '', minSpeed: '' }
+    //* { txt: '', maxPrice: '' }
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
-
     useEffect(() => {
         onSetFilter(filterByToEdit)
     }, [filterByToEdit])

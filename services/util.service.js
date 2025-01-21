@@ -26,6 +26,17 @@ export function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive 
 }
 
+export function getTruthyValues(obj) {
+    const newObj = {}
+    for (const key in obj) {
+        const value = obj[key]
+        if (value) {
+            newObj[key] = value
+        }
+    }
+    return newObj
+}
+
 export function saveToStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value))
 }

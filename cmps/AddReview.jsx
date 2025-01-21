@@ -8,12 +8,9 @@ export function AddReview({ bookId, onAddReview }) {
         readAt: ''
     })
 
-    function handleChange(event) {
-        const { name, value } = event.target;
-        setReview((prevReview) => ({
-            ...prevReview,
-            [name]: value,
-        }))
+    function handleChange({ target }) {
+        const { name, value } = target
+        setReview((prevReview) => ({ ...prevReview, [name]: value, }))
     }
 
     function handleSubmit(event) {
