@@ -1,4 +1,5 @@
 import { AddReview } from "../cmps/AddReview.jsx"
+import { Accordion } from "../cmps/Accordion.jsx"
 import { bookService } from "../services/book.service.js"
 const { useState, useEffect } = React
 const { useParams, Link } = ReactRouterDOM
@@ -7,9 +8,10 @@ export function BookDetails() {
 
     const [book, setBook] = useState(null)
     const params = useParams()
+
     useEffect(() => {
         loadBook()
-    }, [])
+    }, [params])
 
     function loadBook() {
         bookService.get(params.bookId)
@@ -45,9 +47,11 @@ export function BookDetails() {
     return (
         <section className="book-details">
             <section className="details-section">
-                <button className="back-btn">
-                    <Link to="/book">Back</Link>
-                </button>
+                <section className="nav-btn-wrapper flex">
+                    <Link className="btn" to="/book">Back</Link>
+                    <Link className="btn" to={`/book/${book.prevBookId}`}>Prev</Link>
+                    <Link className="btn" to={`/book/${book.nextBookId}`}>Next</Link>
+                </section>
                 <h1>{title}</h1>
                 <h2>{subtitle}</h2>
                 <h3>{description}</h3>
@@ -78,18 +82,23 @@ export function BookDetails() {
                         </p>
                     ))}
                 </div>
-                <section className="reviews">
-                    {book.reviews &&
-                        <ul>{!!book.reviews.length && 'Reviews:'}
-                            {book.reviews.map((review, index) => (
-                                <li key={index}>
-                                    <p><strong>{review.fullname}</strong> - {review.rating} ★</p>
-                                    <p>Read on: {review.readAt}</p>
-                                    <button onClick={() => onRemoveReview(index)}>X</button>
-                                </li>
-                            ))}
-                        </ul>}
-                </section>
+                <Accordion title={'Reviews'}>
+                    <section className="reviews">
+                        {(!book.reviews || !book.reviews.length) && <span>No Reviews</span>}
+                        {book.reviews &&
+                            <ul>
+                                {book.reviews.map((review, index) => (
+                                    <li key={index}>
+                                        <p><strong>{review.fullname}</strong> - {review.rating} ★</p>
+                                        <p>Read on: {review.readAt}</p>
+                                        <button onClick={() => onRemoveReview(index)}>X</button>
+                                    </li>
+                                ))}
+                            </ul>
+                        }
+                    </section>
+                </Accordion>
+
             </section>
             <AddReview bookId={params.bookId} onAddReview={handleAddReview} />
         </section>

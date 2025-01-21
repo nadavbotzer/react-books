@@ -81,3 +81,7 @@
     font-size: 1.5rem;
 
 }
+
+.book-details .nav-btn-wrapper {
+    gap: 1rem
+}

@@ -1,4 +1,5 @@
-button {
+button,
+.btn {
     cursor: pointer;
     background-color: var(--gray3);
     margin: 0.5em 0;

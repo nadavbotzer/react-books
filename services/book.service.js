@@ -15,7 +15,6 @@ export const bookService = {
 }
 
 function query(filterBy = {}) {
-    console.log(filterBy)
     return storageService.query(BOOK_KEY)
         .then(books => {
             if (filterBy.txt) {
@@ -31,6 +30,7 @@ function query(filterBy = {}) {
 
 function get(bookId) {
     return storageService.get(BOOK_KEY, bookId)
+        .then(book => _setNextPrevId(book))
 }
 
 function remove(bookId) {
@@ -518,6 +518,17 @@ function _createBooks() {
         ]
         saveToStorage(BOOK_KEY, books)
     }
+}
+
+function _setNextPrevId(book) {
+    return query().then((books) => {
+        const bookIdx = books.findIndex((currCar) => currCar.id === book.id)
+        const nextBook = books[bookIdx + 1] ? books[bookIdx + 1] : books[0]
+        const prevBook = books[bookIdx - 1] ? books[bookIdx - 1] : books[books.length - 1]
+        book.nextBookId = nextBook.id
+        book.prevBookId = prevBook.id
+        return book
+    })
 }
 
 function _createBook(title, description = 250) {
