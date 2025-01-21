@@ -2,11 +2,7 @@ const { useState } = React
 import { bookService } from '../services/book.service.js';
 
 export function AddReview({ bookId, onAddReview }) {
-    const [review, setReview] = useState({
-        fullname: '',
-        rating: 1,
-        readAt: ''
-    })
+    const [review, setReview] = useState(bookService.getEmptyReview())
 
     function handleChange({ target }) {
         const { name, value } = target
@@ -61,5 +57,5 @@ export function AddReview({ bookId, onAddReview }) {
                 <button type="submit">Add</button>
             </form>
         </section>
-    );
+    )
 }

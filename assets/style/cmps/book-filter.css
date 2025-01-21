@@ -3,6 +3,7 @@
     background-color: var(--gray1);
     padding-inline: 1em;
     padding: 1rem;
+    border-radius: 25px;
 }
 
 .book-filter:hover form {

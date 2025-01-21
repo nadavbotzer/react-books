@@ -1,5 +1,11 @@
 .home {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
+.home h1 {
+    padding-top: 1rem;
 }
 
 .home img {
