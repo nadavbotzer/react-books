@@ -1,19 +1,51 @@
-.car-edit {
-    text-align: center;
+.book-edit {
+    justify-self: center;
 }
 
-.car-edit form {
-    display: flex;
-    flex-direction: column;
+.book-edit h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    padding: 2.5rem;
+}
+
+.book-edit form {
+    display: grid;
+    grid-template-columns: 200px 1fr;
     align-items: center;
     font-size: 1.5rem;
-    font-family: 'Edu VIC WA NT Beginner', cursive;
     width: 50vw;
-    margin: auto;
-    margin-top: 50px;
+    justify-content: start;
+    padding: 2.5rem;
+    gap: 1rem;
+    border: 1px rgba(0, 0, 0, 0.438) solid;
+    border-radius: 25px;
+    justify-self: center;
+    background-color: var(--gray1);
 }
 
-.car-edit form input {
-    max-width: 300px;
-    margin-bottom: 15px;
+.book-edit form input {
+    height: 2rem;
+    max-width: 320px;
+}
+
+.book-edit form label {
+    font-size: 1rem;
+    max-width: 320px;
+
+}
+
+.book-edit textarea {
+    height: 5rem;
+    max-width: 320px;
+}
+
+.book-edit form button {
+    height: 2rem;
+    grid-column: 1/-1;
+}
+
+@media (max-width: 912px) {
+    .book-edit form {
+        grid-template-columns: 1fr;
+    }
 }

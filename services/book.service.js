@@ -51,15 +51,24 @@ function save(book) {
 function getEmptyBook(title = '', price = '') {
     return {
         title,
+        subtitle: '',
+        authors: [],
+        publishedDate: new Date().getFullYear(),
         description: makeLorem(80),
+        pageCount: 0,
+        categories: [],
         thumbnail: 'http://coding-academy.org/books-photos/14.jpg',
+        language: 'en',
         listPrice: {
             amount: price,
             currencyCode: 'ILS',
             isOnSale: false
-        }
+        },
+        nextBookId: '',
+        prevBookId: ''
     }
 }
+
 
 function getDefaultFilter() {
     return { txt: '', maxPrice: '' }
