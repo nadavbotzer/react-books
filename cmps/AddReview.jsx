@@ -20,7 +20,7 @@ export function AddReview({ bookId, onAddReview }) {
         event.preventDefault()
         bookService.get(bookId).then(book => {
             if (!book.reviews) book.reviews = []
-            book.reviews.push(review)
+            book.reviews.unshift(review)
             bookService.save(book)
                 .then(() => {
                     setReview({ fullname: '', rating: 1, readAt: '' })
@@ -33,6 +33,7 @@ export function AddReview({ bookId, onAddReview }) {
     return (
         <section className='add-review'>
             <form onSubmit={handleSubmit}>
+                <h3>Add Review</h3>
                 <label htmlFor="fullname">Full Name:</label>
                 <input
                     type="text"
@@ -64,7 +65,7 @@ export function AddReview({ bookId, onAddReview }) {
                     onChange={handleChange}
                     required
                 />
-                <button type="submit">Add Review</button>
+                <button type="submit">Add</button>
             </form>
         </section>
     );

@@ -1,7 +1,7 @@
 import { AddReview } from "../cmps/AddReview.jsx"
 import { bookService } from "../services/book.service.js"
 const { useState, useEffect } = React
-const { useParams, useNavigate, Link } = ReactRouterDOM
+const { useParams, Link } = ReactRouterDOM
 
 export function BookDetails() {
 
@@ -64,8 +64,10 @@ export function BookDetails() {
                 <h4>Published: {publishedDate}</h4>
             </section>
             <section className="img-categories-section">
-                <img src={thumbnail} alt="Book Image" />
-                {listPrice.isOnSale && <p className="on-sale">On Sale!</p>}
+                <div className="img-wrapper">
+                    {listPrice.isOnSale && <p className="on-sale">On Sale!</p>}
+                    <img src={thumbnail} alt="Book Image" />
+                </div>
                 <p className="price">Price: {listPrice.amount} {listPrice.currencyCode}
                 </p>
                 <div className="categories-wrapper">
@@ -76,18 +78,18 @@ export function BookDetails() {
                         </p>
                     ))}
                 </div>
-            </section>
-            <section className="reviews">
-                {book.reviews &&
-                    <ul>
-                        {book.reviews.map((review, index) => (
-                            <li key={index}>
-                                <p><strong>{review.fullname}</strong> - {review.rating} ★</p>
-                                <p>Read on: {review.readAt}</p>
-                                <button onClick={() => onRemoveReview(index)}>Delete Review</button>
-                            </li>
-                        ))}
-                    </ul>}
+                <section className="reviews">
+                    {book.reviews &&
+                        <ul>{!!book.reviews.length && 'Reviews:'}
+                            {book.reviews.map((review, index) => (
+                                <li key={index}>
+                                    <p><strong>{review.fullname}</strong> - {review.rating} ★</p>
+                                    <p>Read on: {review.readAt}</p>
+                                    <button onClick={() => onRemoveReview(index)}>X</button>
+                                </li>
+                            ))}
+                        </ul>}
+                </section>
             </section>
             <AddReview bookId={params.bookId} onAddReview={handleAddReview} />
         </section>

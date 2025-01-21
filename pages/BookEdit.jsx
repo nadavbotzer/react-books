@@ -62,13 +62,13 @@ export function BookEdit() {
             <h1>{bookId ? 'Edit Book' : 'Add Book'}</h1>
             <form onSubmit={onSaveBook}>
                 <label htmlFor="title">Title:</label>
-                <input value={title} onChange={handleChange} type="text" name="title" id="title" />
+                <input required value={title} onChange={handleChange} type="text" name="title" id="title" />
                 <label htmlFor="price">Price:</label>
-                <input value={listPrice.amount || ''} onChange={handleChange} type="number" name="listPrice.amount" id="price" />
+                <input required value={listPrice.amount || ''} onChange={handleChange} type="number" name="listPrice.amount" id="price" />
                 <div>
                     <label htmlFor="sale">On Sale:</label>
                     <input
-                        checked={listPrice.isOnSale || false}
+                        checked={listPrice.isOnSale}
                         onChange={handleChange}
                         type="checkbox"
                         name="listPrice.isOnSale"

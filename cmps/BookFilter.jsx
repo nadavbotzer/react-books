@@ -39,8 +39,8 @@ export function BookFilter({ filterBy, onSetFilter }) {
             <form onSubmit={onSubmit}>
                 <label htmlFor="txt">Book Title</label>
                 <input id="txt" name="txt" onChange={handleChange} value={txt} type="text" />
-                <label htmlFor="maxPrice">Max Price {maxPrice}</label>
-                <input id="maxPrice" name="maxPrice" onChange={handleChange} value={maxPrice} type="range" max="300" min="20" step="10" title={maxPrice} />
+                <label htmlFor="maxPrice">Max Price {!!maxPrice && maxPrice}</label>
+                <input id="maxPrice" name="maxPrice" onChange={handleChange} value={maxPrice || 0} type="range" max="300" step="10" title={maxPrice} />
                 <button>Submit</button>
             </form>
         </section>

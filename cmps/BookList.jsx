@@ -2,6 +2,7 @@ import { BookPreview } from "./BookPreview.jsx";
 const { Link } = ReactRouterDOM
 
 export function BookList({ books, onRemoveBook }) {
+    if (!books.length) return <div>No Books to show</div>
     return (
         <ul className="book-list">
             <li className="add-book-btn">

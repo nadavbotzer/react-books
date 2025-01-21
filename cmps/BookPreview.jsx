@@ -32,8 +32,8 @@ export function BookPreview({ book, onRemoveBook }) {
         <article onClick={onBookDetails} className="book-preview">
             <div className="info">
                 <button className="remove-btn" onClick={handleRemoveBook}>X</button>
-                <h3>{shortTxt(title, 15)}</h3>
-                <h5>{shortTxt(description, 100)}</h5>
+                <h3>{shortTxt(title, 12)}</h3>
+                <h5>{shortTxt(description, 50)}</h5>
                 <p className={priceTxtColor + ' price'}>{listPrice.amount} {listPrice.currencyCode}
                 </p>
                 <button className="edit-btn" onClick={onBookEdit}>Edit</button>

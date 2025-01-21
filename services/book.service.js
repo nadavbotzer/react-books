@@ -58,7 +58,7 @@ function getEmptyBook(title = '', price = '') {
 }
 
 function getDefaultFilter() {
-    return { txt: '', maxPrice: 200 }
+    return { txt: '', maxPrice: '' }
 }
 
 function _createBooks() {
